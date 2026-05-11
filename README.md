@@ -1,6 +1,7 @@
 # Curricularizacao
 # 🎮🕹️ Explorador de Brusque: Quiz Interativo
-Este projeto é um jogo educativo desenvolvidopara o ambiente virtual de aprendizagem, com foco em crianças do ensino fundamental. O objetivo é ensinar sobre a fauna e a cultura local de forma lúdica e interativa.
+Este projeto é um jogo educativo desenvolvido para o ambiente virtual de aprendizagem, com foco em crianças do ensino fundamental. 
+O objetivo é ensinar sobre a fauna e a cultura local de forma lúdica e interativa.
 
 ---
 
@@ -14,7 +15,7 @@ O " Explorador de brusque" funciona como um quiz de perguntas e respostas. O jog
 ## ⚒️ Tecnologias Utilizadas 
 Para este projeto, optamos por tecnologias puras de web design leveza e compatibilidade:
 * **HTML5:** Estrutura semântica das telas e organização do conteúdo.
-* **CSS:** Estilização visual, animações e layoiut responsivo com **Flexbox**.
+* **CSS:** Estilização visual, animações e layout responsivo com **Flexbox**.
 * **Lógica :target:** Utilizamos a pseudo-classe ':target' do CSS para criar toda a navegação do jogo sem a necessidade de scripts externos, tornandoo código limpo e eficiente.
 
 ---
@@ -23,5 +24,6 @@ Para este projeto, optamos por tecnologias puras de web design leveza e compatib
 * Priscila Trein da Luz
 * Valeria Sofia Orence Chacon
 * Lucas Gabriel Maurici
+* Otavio Henrique da Silva
 
 ## 🖇️ Link do jogo
