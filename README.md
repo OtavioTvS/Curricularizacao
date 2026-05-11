@@ -21,5 +21,6 @@ Para este projeto, optamos por tecnologias puras de web design leveza e compatib
 
 ## 👥Equipe de Desenvolvedores
 * Priscila Trein da Luz
+* Valeria Sofia Orence Chacon
 
 ## 🖇️ Link do jogo
