@@ -25,5 +25,6 @@ Para este projeto, optamos por tecnologias puras de web design leveza e compatib
 * Valeria Sofia Orence Chacon
 * Lucas Gabriel Maurici
 * Otavio Henrique da Silva
+* Eduardo Bernardo da silva
 
 ## 🖇️ Link do jogo
