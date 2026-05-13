@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<title>Jogo Curricularização</title>
+
+<style>
+
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    overflow:hidden;
+
+    background:linear-gradient(#4fc3f7,#66bb6a);
+
+}
+
+.tela{
+
+    display:none;
+
+    min-height:100vh;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+#Inicio{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(-45deg,#0f8a0b,#e47e1f,#a462cf,#db5488);
+
+    background-size:400% 400%;
+
+    animation:fundo 8s ease infinite;
+
+}
+
+@keyframes fundo{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+.tela:target{
+
+    display:flex;
+
+}
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+h1{
+
+    color:#e7e436ee;
+
+    font-size:65px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    3px 3px 0px #000,
+    0 0 10px rgba(255,255,255,0.5);
+
+    animation:titulo 2s infinite alternate;
+
+}
+
+@keyframes titulo{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-6px);
+    }
+
+}
+
+p{
+
+    font-size:35px;
+
+    color:white;
+
+}
+
+.botão{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background-color:#ee4141ea;
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:12px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+
+.botão:hover{
+
+    background-color:#17a50a;
+
+    transform:scale(1.1);
+
+}
+
+.opções{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.opções a{
+
+    text-decoration:none;
+
+    color:white;
+
+    position:relative;
+
+    display:inline-block;
+
+    border-radius:10px;
+
+    transition:0.3s;
+
+}
+
+.opções a:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:0 0 10px rgba(255,255,255,0.5);
+
+}
+
+h2{
+
+    
+    color:#f8f8f8fb;
+
+    font-size:50px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    3px 3px 2px #000,
+    0 0 10px rgba(209, 190, 190, 0.5);
+
+    animation:titulo 2s infinite alternate;
+
+}
+.bandeira{
+
+    width:150px;
+
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+.festa{
+
+    width:200px;
+
+    height:250px;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+}
+
+.parque{
+    width: 150px;
+
+    height: 100px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+    
+}
+
+.opções a h3{
+
+    transition:0.3s;
+    color:white;
+
+}
+
+.opções a:hover h3{
+
+    color:#1b1a0f;
+
+}
+
+.voltar{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    background:rgb(255, 136, 0);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    border-radius:15px;
+
+    font-size:20px;
+
+}
+
+.mascotes{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:30px;
+
+}
+
+.mascote{
+
+    width:180px;
+
+    height:auto;
+
+}
+
+.animar{
+
+    animation:mexer 2s infinite alternate;
+
+}
+
+@keyframes mexer{
+
+    from{
+        transform:translateY(0px) rotate(-5deg);
+    }
+
+    to{
+        transform:translateY(-15px) rotate(5deg);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="tela" id="Inicio">
+
+    <div class="menu">
+
+        <h1>Aprendendo com Brusque</h1>
+
+        <p>Vamos aprender sobre Brusque jogando!</p>
+
+        <a href="#pergunta1" class="botão">Jogar</a>
+
+    </div>
+
+    <div class="mascotes">
+
+        <img src="capivara.png" class="mascote animar">
+
+        <img src="marreco.png" class="mascote animar">
+
+    </div>
+
+</section>
+
+<section class="tela" id="pergunta1">
+
+    <a href="#Inicio" class="voltar">Voltar</a>
+
+    <h2>Em qual país fica Santa Catarina?</h2>
+
+    <div class="opções">
+
+        <a href="#errou">
+            <img src="italia.jpg" class="bandeira">
+            <h3>ITÁLIA</h3>
+        </a>
+
+        <a href="#errou">
+            <img src="africa.webp" class="bandeira">
+            <h3>ÁFRICA</h3>
+        </a>
+
+        <a href="#errou">
+            <img src="china.jpg" class="bandeira">
+            <h3>CHINA</h3>
+        </a>
+
+        <a href="#pergunta2">
+            <img src="brasil.jpg" class="bandeira">
+            <h3>BRASIL</h3>
+        </a>
+
+    </div>
+
+</section>
+
+<section class="tela" id="pergunta2">
+
+    <a href="#Inicio" class="voltar">Voltar</a>
+
+    <h2>Qual destas é a festa típica de Brusque?</h2>
+
+    <div class="opções">
+
+        <a href="#errou">
+            <img src="festadauva.png" class="festa">
+        </a>
+
+        <a href="#pergunta3">
+            <img src="festafenarreco.png" class="festa">
+        </a>
+
+        <a href="#errou">
+            <img src="festapinhão.png" class="festa">
+        </a>
+
+    </div>
+
+</section>
+
+<section class="tela" id="pergunta3">
+
+    <a href="#Inicio" class="voltar">Voltar</a>
+
+    <h2>Qual destes parques é o Parque das Esculturas localizado em Brusque?</h2>
+
+    <div class="opções">
+
+        <a href="#errou">
+            <img src="parquedediversao.webp" class="parque">
+        </a>
+
+         <a href="#errou">
+            <img src="parquinho.jpg" class="parque">
+        </a>
+
+        <a href="#acertou">
+            <img src="parquedasesculturas.jpg" class="parque">
+        </a>
+            
+        <a href="#errou"> 
+            <img src="bosque.jpg" class="parque">
+        </a>
+           
+    </div>
+</section>
+
+</body>
+</html>
