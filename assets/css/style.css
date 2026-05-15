@@ -1,0 +1,884 @@
+/* ===================================================
+   RESET & BASE
+=================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    /* Escala fluida: base 14px em telas pequenas → 16px em grandes */
+    font-size: clamp(14px, 1.5vw, 16px);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(#4fc3f7, #66bb6a);
+    /* Garante que o body ocupe sempre a tela toda */
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    /* suporte a viewport dinâmica em mobile moderno */
+}
+
+/* ===================================================
+   TELAS
+=================================================== */
+
+.tela {
+
+    width: 100vw;
+
+    min-height: 100vh;
+
+    min-height: 100dvh;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: clamp(12px, 4vw, 40px);
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ===================================================
+   TELA INICIAL
+=================================================== */
+
+#Inicio {
+    display: flex;
+    background: linear-gradient(-45deg, #0f8a0b, #e47e1f, #a462cf, #db5488);
+    background-size: 400% 400%;
+    -webkit-animation: fundo 8s ease infinite;
+    animation: fundo 8s ease infinite;
+}
+
+@-webkit-keyframes fundo {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fundo {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ===================================================
+   MENU
+=================================================== */
+
+.menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: clamp(8px, 2vw, 14px);
+}
+
+/* ===================================================
+   TIPOGRAFIA — fluida com clamp()
+=================================================== */
+
+h1 {
+    color: #e7e436ee;
+    /* 28px em telas mínimas → 65px em desktops grandes */
+    font-size: clamp(1.6rem, 5vw + 1rem, 4rem);
+    text-transform: uppercase;
+    letter-spacing: clamp(1px, 0.3vw, 3px);
+    text-shadow:
+        3px 3px 0px #000,
+        0 0 10px rgba(255, 255, 255, 0.5);
+    margin: 0 0 clamp(6px, 1.5vw, 16px);
+    -webkit-animation: titulo 2s infinite alternate;
+    animation: titulo 2s infinite alternate;
+    line-height: 1.1;
+}
+
+@-webkit-keyframes titulo {
+    from {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+
+    to {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes titulo {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-6px);
+    }
+}
+
+h2 {
+    color: #f8f8f8fb;
+    font-size: clamp(1.1rem, 3.5vw + 0.5rem, 3rem);
+    text-transform: uppercase;
+    letter-spacing: clamp(1px, 0.3vw, 3px);
+    text-shadow:
+        3px 3px 2px #000,
+        0 0 10px rgba(209, 190, 190, 0.5);
+    -webkit-animation: titulo 2s infinite alternate;
+    animation: titulo 2s infinite alternate;
+    margin: 0 0 clamp(10px, 2vw, 24px);
+    line-height: 1.2;
+    max-width: 90vw;
+}
+
+p {
+    font-size: clamp(1rem, 2.5vw, 2.1rem);
+    color: white;
+    margin: clamp(6px, 1.5vw, 16px) 0;
+}
+
+/* ===================================================
+   BOTÃO PRINCIPAL
+=================================================== */
+
+.botão {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1e4a7eea;
+    color: white;
+    padding: clamp(10px, 2vw, 18px) clamp(20px, 4vw, 40px);
+    border-radius: 12px;
+    font-size: clamp(0.9rem, 2.5vw, 1.75rem);
+    font-weight: bold;
+    -webkit-transition: background-color 0.3s, -webkit-transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Evita clique duplo acidental em mobile */
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+.botão:hover,
+.botão:focus {
+    background-color: #73098d;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    outline: none;
+}
+
+/* ===================================================
+   OPÇÕES (múltipla escolha)
+=================================================== */
+
+/* ===================================================
+   OPÇÕES (múltipla escolha)
+=================================================== */
+
+.opções {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: clamp(10px, 2vw, 24px);
+
+    width: 100%;
+
+    max-width: 95vw;
+}
+
+.opcao {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 150px;
+
+    min-height: 65px;
+
+    padding:
+        clamp(12px, 2vw, 18px) clamp(22px, 4vw, 40px);
+
+    background-color: #1e4a7eea;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size:
+        clamp(0.9rem, 2vw, 1.3rem);
+
+    font-weight: bold;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        background-color 0.3s,
+        box-shadow 0.3s;
+
+    user-select: none;
+
+    touch-action: manipulation;
+}
+
+.opcao:hover,
+.opcao:focus {
+
+    background-color: #73098d;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.4);
+
+    outline: none;
+}
+
+.opcao h3 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size:
+        clamp(0.8rem, 2vw, 1.2rem);
+}
+
+.opcao img {
+
+    display: block;
+
+    max-width: 100%;
+}
+
+/* ===================================================
+   IMAGENS DAS OPÇÕES — fluidas
+=================================================== */
+
+.bandeira {
+    width: clamp(80px, 14vw, 160px);
+    height: clamp(55px, 9vw, 105px);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.festa {
+    width: clamp(100px, 16vw, 210px);
+    height: clamp(130px, 20vw, 260px);
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+
+.parque {
+    width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.animais,
+.cultura {
+    width: clamp(100px, 16vw, 210px);
+    height: clamp(130px, 20vw, 260px);
+    object-fit: contain;
+    display: flex;
+}
+
+/* ===================================================
+   MASCOTES
+=================================================== */
+
+.mascotes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: clamp(16px, 4vw, 40px);
+    margin-top: clamp(16px, 3vw, 36px);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.mascote {
+    width: clamp(90px, 16vw, 200px);
+    height: auto;
+}
+
+.animar {
+    -webkit-animation: mexer 2s infinite alternate;
+    animation: mexer 2s infinite alternate;
+}
+
+@-webkit-keyframes mexer {
+    from {
+        -webkit-transform: translateY(0px) rotate(-5deg);
+        transform: translateY(0px) rotate(-5deg);
+    }
+
+    to {
+        -webkit-transform: translateY(-15px) rotate(5deg);
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes mexer {
+    from {
+        transform: translateY(0px) rotate(-5deg);
+    }
+
+    to {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* ===================================================
+   ÁREA DE JOGO (arrastar)
+=================================================== */
+
+.area-jogo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: clamp(20px, 4vw, 50px);
+    width: 100%;
+    max-width: 95vw;
+}
+
+/* ===================================================
+   ELEMENTO ARRASTÁVEL
+=================================================== */
+
+.drag-item {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 8px;
+    cursor: -webkit-grab;
+    cursor: grab;
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Importante: desabilita scroll durante drag em touch */
+    -ms-touch-action: none;
+    touch-action: none;
+    /* Evita que a imagem seja "arrastada" pelo browser nativamente no mobile */
+    -webkit-user-drag: none;
+}
+
+.drag-item:active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+    opacity: 0.7;
+}
+
+.drag-item img {
+    width: clamp(80px, 14vw, 200px);
+    height: auto;
+    pointer-events: none;
+    /* Evita que o drag capture só a imagem */
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    user-drag: none;
+    display: block;
+}
+
+/*
+    SLOT DE IMAGEM ADICIONAL dentro do drag-item:
+    Qualquer <img> colocado dentro de .drag-item (além do primeiro)
+    também recebe o mesmo tamanho automaticamente.
+*/
+.drag-item img+img {
+    width: clamp(60px, 10vw, 140px);
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* ===================================================
+   CAIXAS DE DESTINO (drop zones)
+=================================================== */
+
+.datas,
+.regiao,
+.data-aniversario {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: clamp(10px, 2.5vw, 32px);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.caixa-data {
+    /* Tamanho adaptável: mínimo 100px, ideal proporcional, máximo 155px */
+    width: clamp(100px, 22vw, 155px);
+    height: clamp(100px, 22vw, 155px);
+    border: 4px dashed white;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 6px;
+    font-size: clamp(0.7rem, 2vw, 1.6rem);
+    color: white;
+    font-weight: bold;
+    -webkit-transition: background-color 0.25s, -webkit-transform 0.25s, border-color 0.25s;
+    transition: background-color 0.25s, transform 0.25s, border-color 0.25s;
+    text-align: center;
+    padding: clamp(4px, 1vw, 10px);
+    cursor: pointer;
+    /* Necessário para que o drop funcione no iOS Safari */
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+.caixa-data span {
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* Imagem dentro da caixa de destino */
+.caixa-data .img-caixa {
+    width: clamp(50px, 10vw, 100px);
+    height: clamp(35px, 7vw, 70px);
+    object-fit: cover;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.caixa-data:hover,
+.caixa-data.drag-over {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.35);
+    border-color: #ffe066;
+}
+
+/* Estado visual ao acertar */
+.caixa-data.acerto {
+    border-color: #00e676;
+    background: rgba(0, 230, 118, 0.35);
+}
+
+/* Estado visual ao errar */
+.caixa-data.erro {
+    border-color: #ff1744;
+    background: rgba(255, 23, 68, 0.3);
+}
+
+/* ===================================================
+   FEEDBACK VISUAL E BLOQUEIOS
+=================================================== */
+
+.opcao.correta,
+.botão.correta {
+    background: #00c853 !important;
+    box-shadow: 0 0 18px rgba(0, 200, 83, 0.8);
+    transform: scale(1.06);
+}
+
+.opcao.errada,
+.botão.errada {
+    background: #ff1744 !important;
+    box-shadow: 0 0 18px rgba(255, 23, 68, 0.8);
+    transform: scale(0.96);
+}
+
+.opcao.desabilitado,
+.botão.desabilitado {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Caixas de arrastar NÃO clicáveis */
+.caixa-data {
+    cursor: default;
+}
+
+/* Hover só quando estiver arrastando */
+body.dragging .caixa-data.drag-over {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.35);
+    border-color: #ffe066;
+}
+
+.caixa-data:hover {
+    -webkit-transform: none;
+    transform: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+/* ===================================================
+   VIDAS
+=================================================== */
+
+.vidas {
+    position: fixed;
+    top: clamp(10px, 2vw, 24px);
+    left: clamp(10px, 2vw, 24px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: clamp(6px, 1.5vw, 14px);
+    z-index: 999;
+}
+
+.vida {
+    width: clamp(32px, 6vw, 64px);
+    height: clamp(32px, 6vw, 64px);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.perdida {
+    opacity: 0.2;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+
+/* ===================================================
+   TELA DE DADOS
+=================================================== */
+
+#dados {
+    gap: clamp(8px, 2vw, 18px);
+}
+
+#dados label {
+    font-size: clamp(0.9rem, 2.2vw, 1.4rem);
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    width: clamp(200px, 60vw, 360px);
+}
+
+#dados input {
+    padding: clamp(8px, 1.5vw, 14px) clamp(10px, 2vw, 22px);
+    border-radius: 10px;
+    border: none;
+    font-size: clamp(0.85rem, 2vw, 1.25rem);
+    width: clamp(200px, 60vw, 360px);
+    /* Melhora o foco visível para acessibilidade */
+    outline: 3px solid transparent;
+    -webkit-transition: outline 0.2s;
+    transition: outline 0.2s;
+}
+
+#dados input:focus {
+    outline: 3px solid #ffe066;
+}
+
+#dados .botões-dados {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: clamp(10px, 3vw, 20px);
+    margin-top: clamp(6px, 1.5vw, 14px);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/* ===================================================
+   Feedback -Working in Progress-
+=================================================== */
+
+.feedback {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform: translateX(-50%);
+
+    background: rgba(0, 0, 0, 0.9);
+
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 9999;
+
+    max-width: 90vw;
+
+    text-align: center;
+}
+
+.feedback.mostrar {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%) translateY(-10px);
+}
+
+.feedback.acerto {
+
+    background: #1f8f4d;
+}
+
+.feedback.erro {
+
+    background: #c0392b;
+}
+
+.feedback.info {
+
+    background: #2c3e50;
+}
+
+/* ===================================================
+   TRANSIÇÕES DE TELA
+=================================================== */
+
+.tela {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(0.96);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        visibility 0.45s;
+
+    pointer-events: none;
+}
+
+/* TELA ATIVA */
+
+.tela.ativa {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+    pointer-events: auto;
+}
+
+/* ===================================================
+   RESPONSIVIDADE EXTRA — breakpoints de segurança
+=================================================== */
+
+/* Telas muito pequenas (360px ou menos ) */
+@media (max-width: 380px) {
+    h2 {
+        font-size: 1rem;
+    }
+
+    .caixa-data {
+        width: 88px;
+        height: 88px;
+        font-size: 0.65rem;
+    }
+
+    .drag-item img {
+        width: 70px;
+    }
+
+    .bandeira {
+        width: 68px;
+        height: 48px;
+    }
+
+    .parque {
+        width: 68px;
+        height: 48px;
+    }
+
+    .festa {
+        width: 85px;
+        height: 110px;
+    }
+}
+
+/* Tablets em retrato (768px) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .caixa-data {
+        width: 130px;
+        height: 130px;
+    }
+
+    .drag-item img {
+        width: 130px;
+    }
+}
+
+/* Desktops e TVs (1920px+) */
+@media (min-width: 1920px) {
+    html {
+        font-size: 18px;
+    }
+
+    .caixa-data {
+        width: 180px;
+        height: 180px;
+    }
+
+    .drag-item img {
+        width: 220px;
+    }
+}
+
+/* Landscape em mobile — reduz altura dos elementos para caber na tela */
+@media (max-height: 500px) and (orientation: landscape) {
+    .tela {
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    .mascotes {
+        display: none;
+    }
+
+    /* esconde mascotes em landscape pequeno */
+    .caixa-data {
+        width: 85px;
+        height: 85px;
+    }
+
+    .drag-item img {
+        width: 70px;
+    }
+
+    .vida {
+        width: 28px;
+        height: 28px;
+    }
+}

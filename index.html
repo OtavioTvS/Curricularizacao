@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Jogo Curricularização</title>
+</head>
+
+<body>
+
+    <!-- ==================== Vidas ==================== -->
+    <section class="vidas">
+        <img src="/assets/Img/vida/Vida.png" class="vida" alt="vida">
+        <img src="/assets/Img/vida/Vida.png" class="vida" alt="vida">
+        <img src="/assets/Img/vida/Vida.png" class="vida" alt="vida">
+    </section>
+
+    <!-- ==================== INÍCIO ==================== -->
+    <section class="tela" id="Inicio">
+        <div class="menu">
+            <h1>Aprendendo com Brusque</h1>
+            <p>Vamos aprender sobre Brusque jogando!</p>
+            <button class="botão" onclick="iniciarJogo()">Jogar</button>
+        </div>
+        <div class="mascotes">
+            <img src="/assets/Img/mascote/Msct-1.png" class="mascote animar" alt="mascote 1">
+            <img src="/assets/Img/mascote/Msct-2.png" class="mascote animar" alt="mascote 2">
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 1 - País ==================== -->
+    <section class="tela" id="pergunta1">
+        <h2>Em qual país fica Santa Catarina?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/bandeiras paises/Bandeira-4.jpeg" class="bandeira" alt="Itália">
+                <h3>ITÁLIA</h3>
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/bandeiras paises/Bandeira-3.jpeg" class="bandeira" alt="África do Sul">
+                <h3>África do Sul</h3>
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/bandeiras paises/Bandeira-2.jpeg" class="bandeira" alt="China">
+                <h3>CHINA</h3>
+            </button>
+            <button class="opcao" data-correta="true">
+                <img src="/assets/Img/bandeiras paises/Bandeira-1.png" class="bandeira" alt="Brasil">
+                <h3>BRASIL</h3>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 2 - Festa ==================== -->
+    <section class="tela" id="pergunta2">
+        <h2>Qual destas é a festa típica de Brusque?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/festa/Festa-1.jpeg" class="festa" alt="Festa 1">
+            </button>
+            <button class="opcao" data-correta="true">
+                <img src="/assets/Img/festa/Festa-2.jpeg" class="festa" alt="Festa 2">
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/festa/Festa-3.jpeg" class="festa" alt="Festa 3">
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 3 - Parque ==================== -->
+    <section class="tela" id="pergunta3">
+        <h2>Qual destes parques é o Parque das Esculturas localizado em Brusque?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/parques/Parque-4.jpeg" class="parque" alt="Parque 4">
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/parques/Parque-2.jpeg" class="parque" alt="Parque 2">
+            </button>
+            <button class="opcao" data-correta="true">
+                <img src="/assets/Img/parques/Parque-1.jpg" class="parque" alt="Parque correto">
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/parques/Parque-3.jpeg" class="parque" alt="Parque 3">
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 4 — ARRASTAR DATA ==================== -->
+    <section class="tela" id="pergunta4">
+        <h2>Arraste a imagem de Brusque para a data que foi fundada</h2>
+        <div class="area-jogo">
+
+            <div class="drag-item" id="drag-p4">
+                <img src="/assets/Img/brasao/brusque.png" alt="Brusque">
+            </div>
+
+            <div class="datas">
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/anos/2025.png" class="img-caixa" alt="2025">
+                    <span>2025</span>
+                </div>
+
+                <div class="caixa-data" data-correto="true">
+                    <img src="/assets/Img/anos/1860.png" class="img-caixa" alt="1860">
+                    <span>1860</span>
+                </div>
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/anos/1980.png" class="img-caixa" alt="1980">
+                    <span>1980</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 5 - Brusquense ==================== -->
+    <section class="tela" id="pergunta5">
+        <h2>Quem nasce em Brusque é Brusquense?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="true">
+                VERDADEIRO
+            </button>
+            <button class="opcao" data-correta="false">
+                FALSO
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 6 - Comprar ==================== -->
+    <section class="tela" id="pergunta6">
+        <h2>Brusque é o melhor lugar para comprar:</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="true">
+                ROUPA
+            </button>
+            <button class="opcao" data-correta="false">
+                BRINQUEDO
+            </button>
+            <button class="opcao" data-correta="false">
+                ELETRÔNICO
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 7 — ARRASTAR REGIÃO ==================== -->
+    <section class="tela" id="pergunta7">
+        <h2>Conecte Brusque a sua região</h2>
+        <div class="area-jogo">
+
+            <div class="drag-item" id="drag-p7">
+                <img src="/assets/Img/brasao/brusque.png" alt="Brusque">
+            </div>
+
+            <div class="regiao">
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/estados/sao-paulo.png" class="img-caixa" alt="SP">
+                    <span>São Paulo</span>
+                </div>
+
+                <div class="caixa-data" data-correto="true">
+                    <img src="/assets/Img/estados/santa-catarina.png" class="img-caixa" alt="SC">
+                    <span>Santa Catarina</span>
+                </div>
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/estados/parana.png" class="img-caixa" alt="PR">
+                    <span>Paraná</span>
+                </div>
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/estados/acre.png" class="img-caixa" alt="AC">
+                    <span>Acre</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 8 — ARRASTAR ANIVERSÁRIO ==================== -->
+    <section class="tela" id="pergunta8">
+        <h2>Arraste Brusque para o dia em que está de aniversário:</h2>
+        <div class="area-jogo">
+
+            <div class="drag-item" id="drag-p8">
+                <img src="/assets/Img/brasao/brusque.png" alt="Brusque">
+            </div>
+
+            <div class="data-aniversario">
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/datas/15.png" alt="Quinze de Março" class="img-caixa">
+                    <span>15 de Março</span>
+                </div>
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/datas/22.png" alt="Vinte e Dois de Novembro" class="img-caixa">
+                    <span>22 de Novembro</span>
+                </div>
+
+                <div class="caixa-data" data-correto="true">
+                    <img src="/assets/Img/datas/04.png" alt="Quatro de Agosto" class="img-caixa">
+                    <span>04 de Agosto</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 9 — ARRASTAR COMIDA ==================== -->
+    <section class="tela" id="pergunta9">
+        <h2>Conecte Brusque às suas comidas típicas:</h2>
+        <div class="area-jogo">
+
+            <div class="drag-item" id="drag-p9">
+                <img src="/assets/Img/brasao/brusque.png" alt="Brusque">
+            </div>
+
+            <div class="datas">
+
+                <div class="caixa-data" data-correto="true">
+                    <img src="/assets/Img/comidas/marreco.png" alt="Marreco Recheado" class="img-caixa">
+                    <span>Marreco Recheado</span>
+                </div>
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/comidas/pao de queijo.png" alt="Pão de Queijo" class="img-caixa">
+                    <span>Pão de Queijo</span>
+                </div>
+
+                <div class="caixa-data" data-correto="false">
+                    <img src="/assets/Img/comidas/moqueca.png" alt="Moqueca" class="img-caixa">
+                    <span>Moqueca</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 10 - Comida Tipica  ==================== -->
+    <section class="tela" id="pergunta10">
+        <h2>O Marreco é uma comida típica de Brusque?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="true">
+                VERDADEIRO
+            </button>
+            <button class="opcao" data-correta="false">
+                FALSO
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 11 - Fundação ==================== -->
+    <section class="tela" id="pergunta11">
+        <h2>Qual povo fundou a cidade de Brusque?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/cultura/gaucho.png" class="cultura" alt="Gaúchos">
+                <h3>Gaúchos</h3>
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/cultura/mineiro.png" class="cultura" alt="Mineiros">
+                <h3>Mineiros</h3>
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/cultura/ingles.png" class="cultura" alt="Ingleses">
+                <h3>Ingleses</h3>
+            </button>
+            <button class="opcao" data-correta="true">
+                <img src="/assets/Img/cultura/alemao.png" class="cultura" alt="Alemães">
+                <h3>Alemães</h3>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 12 - Idade de Brusque ==================== -->
+    <section class="tela" id="pergunta12">
+        <h2>Brusque tem 161 anos de idade?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="false">
+                VERDADEIRO
+            </button>
+            <button class="opcao" data-correta="true">
+                FALSO
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 13 - Animal Comum em Bruque==================== -->
+    <section class="tela" id="pergunta13">
+        <h2>Qual deste animais é comum avistar em Brusque?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/animais/animal-1.png" class="animais" alt="Leão">
+                <h3>Leão</h3>
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/animais/animal-4.png" class="animais" alt="Elefante">
+                <h3>Elefante</h3>
+            </button>
+            <button class="opcao" data-correta="true">
+                <img src="/assets/Img/animais/animal-2.png" class="animais" alt="Capivara">
+                <h3>Capivara</h3>
+            </button>
+            <button class="opcao" data-correta="false">
+                <img src="/assets/Img/animais/animal-3.png" class="animais" alt="Onça">
+                <h3>Onça</h3>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 14 - Escultura da FIP ==================== -->
+    <section class="tela" id="pergunta14">
+        <h2>A FIP tem a escultura de um Marreco?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="true">
+                VERDADEIRO
+            </button>
+            <button class="opcao" data-correta="false">
+                FALSO
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PERGUNTA 15 - Maior Loja de Brusque ==================== -->
+    <section class="tela" id="pergunta15">
+        <h2>A Havan é a maior loja de Brusque?</h2>
+        <div class="opções">
+            <button class="opcao" data-correta="true">
+                VERDADEIRO
+            </button>
+            <button class="opcao" data-correta="false">
+                FALSO
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== PARABÉNS ==================== -->
+    <section class="tela" id="acertou">
+        <h1>PARABÉNS!</h1>
+        <p>Você terminou o jogo!</p>
+        <button onclick="irParaDados()" class="botão">Continuar</button>
+
+        <p>Jogo feito por:</p>
+        <p>Otavio Henrique da Silva</p>
+        <p>Priscila Trein da Luz</p>
+        <p>Valeria Sofia Orence Chacon</p>
+        <p>Eduardo Bernardo da Silva</p>
+        <p>Lucas Gabriel Maurici</p>
+    </section>
+
+    <!-- ==================== ERROU ==================== -->
+    <section class="tela" id="errou">
+        <h1>OPS!</h1>
+        <p>Você usou todas as tentativas.<br> Mas não se preocupe tente novamente!</p>
+        <button onclick="irParaInicio()" class="botão">Continuar</button>
+    </section>
+
+    <!-- ==================== DADOS ==================== -->
+    <section class="tela" id="dados">
+        <h2>Insira aqui os dados do estudante</h2>
+        <label for="nomeAluno">Nome do aluno:</label>
+        <input type="text" id="nomeAluno" placeholder="Nome do aluno" autocomplete="off">
+        <label for="idadeAluno">Idade do aluno:</label>
+        <input type="text" id="idadeAluno" placeholder="Idade do aluno" autocomplete="off" inputmode="numeric">
+        <label for="escolaAluno">Nome da Escola:</label>
+        <input type="text" id="escolaAluno" placeholder="Escola do aluno" autocomplete="off">
+        <div class="botões-dados">
+            <button class="botão" onclick="finalizarDados()">Enviar</button>
+            <button class="botão" onclick="finalizarDados()">Pular</button>
+        </div>
+    </section>
+
+    <section class="tela" id="fb">
+        <div id="feedback" class="feedback">
+            
+        </div>
+    </section>
+
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>
